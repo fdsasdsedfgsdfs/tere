@@ -1,0 +1,152 @@
+# AdvancedAntiCheat Configuration
+# Minecraft 1.19.4 için optimize edilmiş
+
+# Genel Ayarlar
+general:
+  debug: false
+  language: "tr"
+  database_type: "JSON" # JSON, MySQL, SQLite
+  update_checker: true
+  metrics: true
+
+# Makine Öğrenmesi Ayarları
+machine_learning:
+  enabled: true
+  confidence_threshold: 0.75
+  training_data_size: 1000
+  auto_training: true
+  neural_network_layers: 10
+  ensemble_voting: true
+
+# Tespit Ayarları
+detection:
+  combat:
+    killaura:
+      enabled: true
+      max_angle: 90.0
+      head_snap_threshold: 30.0
+      multi_target_limit: 3
+      sensitivity: "medium" # low, medium, high
+    
+    reach:
+      enabled: true
+      max_reach: 3.0
+      creative_reach: 5.0
+      tolerance: 0.5
+    
+    aimbot:
+      enabled: true
+      accuracy_threshold: 0.95
+      snap_detection: true
+    
+    autoclicker:
+      enabled: true
+      max_cps: 20
+      variance_threshold: 0.1
+    
+    velocity:
+      enabled: true
+      knockback_threshold: 0.8
+      
+  movement:
+    fly:
+      enabled: true
+      max_air_time: 5000 # ms
+      vertical_threshold: 0.5
+    
+    speed:
+      enabled: true
+      max_speed: 10.0 # blocks/second
+      boost_threshold: 1.5
+    
+    jesus:
+      enabled: true
+      liquid_speed: 0.5
+    
+    nofall:
+      enabled: true
+      fall_threshold: 3.0
+    
+    phase:
+      enabled: true
+      block_collision: true
+      
+  visual:
+    xray:
+      enabled: true
+      mining_ratio: 0.8
+      ore_frequency: true
+    
+    esp:
+      enabled: true
+      packet_analysis: true
+      
+  automation:
+    scaffold:
+      enabled: true
+      placement_speed: 10 # blocks/second
+      angle_consistency: true
+    
+    fastbreak:
+      enabled: true
+      break_speed_multiplier: 2.0
+    
+    automine:
+      enabled: true
+      mining_pattern: true
+
+# Ceza Sistemi
+punishment:
+  enabled: true
+  
+  # Ceza seviyeleri
+  levels:
+    warn: 10
+    kick: 25
+    temp_ban: 50
+    permanent_ban: 100
+  
+  # Ceza komutları
+  commands:
+    warn: "warn {player} {reason}"
+    kick: "kick {player} {reason}"
+    temp_ban: "tempban {player} 1h {reason}"
+    permanent_ban: "ban {player} {reason}"
+  
+  # Otomatik ceza
+  auto_punishment: true
+  escalation: true
+
+# Bildirim Sistemi
+alerts:
+  enabled: true
+  console: true
+  in_game: true
+  webhook: false
+  
+  # Bildirim formatları
+  format:
+    prefix: "§c[AC] "
+    player: "§e{player}"
+    hack: "§c{hack}"
+    reason: "§7{reason}"
+    vl: "§6VL: {vl}"
+
+# Performans Ayarları
+performance:
+  async_processing: true
+  thread_pool_size: 4
+  data_cleanup_interval: 300 # seconds
+  max_player_data_age: 3600 # seconds
+
+# Bypass İzinleri
+bypass:
+  permission: "anticheat.bypass"
+  admin_permission: "anticheat.admin"
+  notify_permission: "anticheat.notify"
+  
+# İstatistikler
+statistics:
+  enabled: true
+  save_interval: 60 # seconds
+  detailed_logging: false
