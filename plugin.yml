@@ -1,0 +1,28 @@
+name: AdvancedAntiCheat
+version: 1.0.0
+main: com.anticheat.AdvancedAntiCheat
+api-version: 1.19
+author: AntiCheatDev
+description: Gelişmiş makine öğrenmesi destekli AntiCheat sistemi
+website: https://github.com/anticheat
+
+commands:
+  anticheat:
+    description: AntiCheat ana komutu
+    usage: /anticheat <reload|stats|check|whitelist>
+    permission: anticheat.admin
+    aliases: [ac]
+
+permissions:
+  anticheat.admin:
+    description: AntiCheat yönetici izni
+    default: op
+  anticheat.bypass:
+    description: AntiCheat kontrollerini atla
+    default: false
+  anticheat.notify:
+    description: AntiCheat bildirimlerini al
+    default: op
+
+depend: []
+softdepend: [PlaceholderAPI, ProtocolLib]
